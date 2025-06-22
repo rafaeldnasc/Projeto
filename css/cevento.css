@@ -1,0 +1,108 @@
+
+body{
+    background-color: rgba(185, 185, 185, 0.936);
+}
+.completo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 20px; 
+}
+form {
+    margin: 50px;
+    padding: 50px; 
+    border-radius: 10px;
+    width: 100%; 
+    max-width: 1000px; 
+    box-sizing: border-box; 
+}
+.completo h1 {
+    text-align: center;
+    font-size: 45px;
+    margin-bottom: 35px;
+}
+.completo p {
+    text-align: center;
+    color: black;
+    font-size: 27px;
+    margin-bottom: 35px;
+}
+#estado_brasil{
+    margin-top:10px;
+    text-align: center;
+}
+.input-box {
+    width: 100%;
+    margin-bottom: 15px;
+    
+}
+
+.input-box input {
+    margin: 10px;
+    width: 100%;
+    background: transparent;
+    outline: none;
+    font-size: 13px;
+    padding: 10px; 
+    background-color: #f7f7f7; 
+    border: none;
+    box-sizing: border-box;
+}
+.input-box input:focus {
+    border: 2px solid rgb(63, 119, 232);
+}
+.input-grid {
+    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 40px; 
+}
+.input-box input::placeholder {
+    white-space: nowrap; /* Impede que o placeholder quebre a linha */
+    overflow: hidden; /* Oculta o excesso */
+    text-overflow: ellipsis; /* Adiciona reticências se o texto for muito longo */
+}
+.completo .btn {
+    width: 100%;
+    height: 45px; 
+    background: #1b8f21;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+    margin-top: 12px; 
+}
+
+.completo .btn:hover {
+    background: #2e6831;
+    color: rgba(255, 255, 255, 0.8);
+}
+@media (max-width: 768px) {
+    .completo {
+        flex-direction: column; 
+    }
+    .input-grid {
+        gap: 15px;
+        grid-template-columns: 1fr; /* Um campo por linha em telas pequenas */
+    }
+    .input-box {
+        margin-bottom: 15px; /* Espaçamento adicional entre os campos */
+    }
+}
+
+.estadobrasileiro{
+    padding: 10px;
+    width: 100%;
+    background-color: #f7f7f7; 
+
+}
+#mensagemErro{
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+}

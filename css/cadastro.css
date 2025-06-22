@@ -1,0 +1,402 @@
+
+a{
+    text-decoration: none;
+}
+span{
+    color: rgb(121, 192, 121);
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    padding: 20px; 
+}
+
+form {
+    margin: 50px;
+    background-color: #d6e4d3c2;
+    border: 1px solid #1b8f21;
+    padding: 50px; 
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 100%; 
+    max-width: 600px; 
+    box-sizing: border-box; 
+    padding: 20px;
+}
+
+.wrapper h1 {
+    font-size: 30px; 
+    text-align: center;
+    margin-bottom: 20px; 
+}
+
+.wrapper p {
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.input-box {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.input-box input {
+    margin: 10px;
+    width: 100%;
+    background: transparent;
+    outline: none;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 10px; 
+    border: 2px solid rgb(94, 90, 90);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.inputdata{
+    margin: 10px;
+    padding: 10px;
+    width: 50%;
+    border: solid black 1 px;
+    font-size: 15px;
+}
+#nomema , #cep{
+    margin: 10px;
+    width: 100%;
+    background: transparent;
+    outline: none;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 10px; 
+    border: 2px solid rgb(94, 90, 90);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.meusinputs{
+    margin: 10px;
+    width: 100%;
+    background: transparent;
+    outline: none;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 10px; 
+    border: 2px solid rgb(94, 90, 90);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.input-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px; 
+}
+.wrapper .remember-forgot {
+    font-size: 17px; 
+    margin-top: 10px; 
+}
+
+.remember-forgot a {
+    color: #1b8f21;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.wrapper .btn {
+    width: 100%;
+    height: 45px; 
+    background: #1b8f21;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+    margin-top: 12px; 
+}
+
+.wrapper .btn:hover {
+    background: #2e6831;
+    color: rgba(255, 255, 255, 0.8);
+}
+.wrapper .register-link {
+    font-size: 16px; 
+    margin-top: 20px;
+}
+
+.register-link p a {
+    color: #1b8f21;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    font-size: 15px;
+    border: 2px solid rgb(154, 154, 165);
+    border-radius: 4px;
+}
+#resposta{
+    text-align: center;
+    color: red;
+    font-size: 15px;
+}
+#aviso{
+    font-size: 15px;
+    text-align: center;
+    color: red;
+}
+.erro {
+    display: flex;
+    flex-direction: column;  /* Garante que o texto fique abaixo da imagem */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* A altura vai ocupar o espaço disponível */
+    max-width: 100%;
+    text-align: center; /* Centraliza o texto */
+    background-color: #887f7f;  
+}
+.erro h1{
+    color: rgb(255, 255, 255);
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 50px;
+}
+
+/* Estilo para a imagem */
+.img-erro {
+    max-width: 100%;  /* A imagem ocupa 100% da largura disponível */
+    height: auto;     /* Mantém a proporção da imagem */
+    margin-bottom: 0px;  /* Espaço abaixo da imagem */
+}
+
+/* Estilo para o texto de erro */
+#aviso h2 {
+    font-size: 30px;
+    color: red;
+    margin-top: 20px;  /* Espaço acima do texto */
+}
+.erro .btn {
+    width: 75%;
+    background: #1b8f21;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+    margin-top: 30px; 
+}
+
+.erro .btn:hover {
+    background: #2e6831;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* Rodapé na parte inferior da página */
+@media(max-width:375px){
+    *{
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    body{
+        height: 100%;
+        width: 100%;
+    }
+    .wrapper{
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+    #flex-diretion{
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+    .input-grid{
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+    #formulario{
+        height: 100%;
+        width: 70%;
+    }
+}
+@media(max-width:414px){
+    *{
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    body{
+        height: 100%;
+        width: 100%;
+    }
+    .wrapper{
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+    #flex-diretion{
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+    .input-grid{
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+    #formulario{
+        height: 100%;
+        width: 70%;
+    }   
+}
+@media(max-width:430px){
+    *{
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    body{
+        height: 100%;
+        width: 100%;
+    }
+    .wrapper{
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+    #flex-diretion{
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+    .input-grid{
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+    #formulario{
+        height: 100%;
+        width: 70%;
+    }   
+}
+@media(max-width:500px){
+    *{
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    body{
+        height: 100%;
+        width: 100%;
+    }
+    .wrapper{
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+    #flex-diretion{
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+    .input-grid{
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+    #formulario{
+        height: 100%;
+        width: 70%;
+    }   
+}
+@media(max-width:430px){
+    *{
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    body{
+        height: 100%;
+        width: 100%;
+    }
+    .wrapper{
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+    #flex-diretion{
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+    .input-grid{
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+    #formulario{
+        height: 100%;
+        width: 70%;
+    }   
+}
+@media (max-width:375px){
+    #lembrarsenha{
+        height: 100%;
+        width: 70%;
+    }
+}
+@media (max-width:414px){
+    *{
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    body{
+        height: 100%;
+        width: 100%;
+    }
+    #lembrarsenha{
+        height: 100%;
+        width: 70%;
+    }
+}
+@media (max-width:440px){
+    #lembrarsenha{
+        height: 100%;
+        width: 70%;
+    }
+}
+@media (max-width:430px){
+    #lembrarsenha{
+        height: 100%;
+        width: 70%;
+    }
+}
+@media (max-width:414px){
+    #meuspedidos{
+        width: 70%;
+    }
+}
+@media (max-width:414px){
+    #alterarsenha{
+        width: 70%;;
+    }
+}
+@media (max-width:450px){
+    #alterarsenha{
+        width: 70%;
+    }
+}
+@media (max-width:450px){
+    #alterarsenha{
+        width: 70%;
+    }
+}
+@media (max-width:430px){
+    #meuspedidos{
+        width: 70%;
+    }
+}
+@media (max-width:440px){
+    #meuspedidos{
+        width: 70%;
+    }
+}

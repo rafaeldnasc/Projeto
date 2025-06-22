@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.tudinho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    padding: 20px; 
+}
+form {
+    margin: 50px;
+    border: 1px solid #ddd;
+    padding: 50px; 
+    border-radius: 10px;
+    width: 100%; 
+    max-width: 600px; 
+    box-sizing: border-box; 
+}
+.começo h1 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 35px;
+}
+.começo p {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: 23px;
+}
+.grupo {
+    display: flex;
+    justify-content: space-between;
+    gap: 70px;
+}
+.info h2 {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.info p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    font-size: 17px;
+    margin-bottom: 10px;
+
+}
+.input-box input {
+    width: 100%;
+    background: transparent;
+    outline: none;
+    font-size: 17px;
+    border: 1px solid #ddd;
+}
+.form input, .form textarea {
+    width: 100%;
+    background: transparent;
+    outline: none;
+    font-size: 17px;
+    border: 1px solid #ddd;
+}
+select {
+    width: 100%;
+    background: transparent;
+    outline: none;
+    font-size: 17px;
+    border: 1px solid #ddd;
+}
+textarea{
+    resize: none;
+    width: 100%;
+    height: 170px;
+}
+.mag{
+    margin-top: 10px;
+}
+.second_bt{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #070707;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 15px;
+    margin-top: 15px;
+    width: 100%;
+    text-decoration: none;
+    float: left;
+}
+.second_bt:hover{
+    background-color: #444343;
+}
+.bt{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #070707;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 15px;
+    margin-top: 15px;
+}
+.bt:hover {
+    background-color: #444343;
+}
+#esc{
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .tudinho {
+        flex-direction: column; 
+    }
+
+    .grupo {
+        flex-direction: column; 
+        gap: 20px; 
+    }
+
+    .info, .formulário {
+        margin-bottom: 20px; /* Adiciona espaço entre os blocos */
+    }
+
+    form {
+        padding: 20px; /* Reduz o padding do formulário */
+        margin: 20px; /* Reduz a margem do formulário */
+    }
+}

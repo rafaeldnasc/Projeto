@@ -1,7 +1,9 @@
 <?php
+include_once('conexao.php');
+include_once("sessao.php");
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    session_start();
-include_once("conexao.php");
+
 $evento = filter_input(INPUT_POST , "evento" , FILTER_DEFAULT);
 $evento = strip_tags($evento);
 $evento = htmlspecialchars($evento , ENT_QUOTES , "utf-8");

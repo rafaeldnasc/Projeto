@@ -91,7 +91,7 @@ session_start();
 
 
                 echo "<h3 id='date_event'> Data:". $data. "</h3>";
-                echo "<h3 id='time_event'> Valor:R$" . $preco . "</h3>";
+                echo "<h3 id='time_event'> Valor:" . $preco . "</h3>";
 
                 echo "</div>";
 

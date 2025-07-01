@@ -3,12 +3,12 @@ session_start();
 include_once("conexao.php");
 
 // Verifica se o usuário está logado
-if (!isset($_SESSION['id'])) {
+if (!isset($_SESSION['id_cadastro'])) {
     header("Location: login.php");
     exit();
 }
 
-$id = $_SESSION['id'];
+$id = $_SESSION['id_cadastro'];
 $email = $_SESSION['email'];
 
 // Verifica se a senha foi enviada via POST
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $senha = htmlspecialchars($senha, ENT_QUOTES, 'UTF-8');
 
     // Recupera a senha do banco de dados para comparação
-    $sql = "SELECT senha FROM cadastro WHERE id = ?";
+    $sql = "SELECT senha FROM cadastro WHERE id_cadastro = ?";
     $stmt = $conexao->prepare($sql);
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $senhahash = password_hash($senha, PASSWORD_BCRYPT);
 
         // Atualiza a senha no banco de dados
-        $sql_update = "UPDATE cadastro SET senha = ? WHERE id = ?";
+        $sql_update = "UPDATE cadastro SET senha = ? WHERE id_cadastro = ?";
         $stmt_update = $conexao->prepare($sql_update);
         $stmt_update->bind_param("si", $senhahash, $id);
 

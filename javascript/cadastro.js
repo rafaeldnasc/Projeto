@@ -1,4 +1,3 @@
-
 /* mascara de telefone */
 function mascaraTelefone(event) {
     let tecla = event.key;
@@ -40,20 +39,6 @@ if(!regexnome){
     return false
 }else {
     aviso.innerHTML = ""
-}
-const data = document.getElementsByName("data")
-let selecionado = false
-for(let i = 0 ; i < data.length ; i++){
-  if(data[i].value === ""){
-    selecionado = true
-    break
-  }
-}
-if(selecionado){
-  aviso.innerHTML = 'Por favor , preencha a data de nascimento !'
-  return false
-}else{
-  aviso.innerHTML = ''
 }
 
 const nomema = document.getElementById("nomema").value
@@ -132,6 +117,15 @@ if(!regexendereço){
     aviso.innerHTML = ""
 }
 
+const login = document.getElementById("login").value
+
+const regexlogin = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(login)
+if(!regexlogin){
+  aviso.innerHTML = "Por favor crie um email válido!"
+    return false
+}else {
+    aviso.innerHTML = ""
+}
 
 const senha = document.getElementById("senha").value
 if(senha.length < 8){

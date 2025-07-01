@@ -73,11 +73,9 @@ include_once("sessao.php");
 
 
 
-  $parametro = filter_input(INPUT_GET, "parametro", FILTER_DEFAULT);
-
-  $parametro = strip_tags($parametro);
-  
-  $parametro = htmlspecialchars($parametro, ENT_QUOTES, 'UTF-8');
+$parametro = isset($_GET['parametro']) ? $_GET['parametro'] : '';
+$parametro = strip_tags($parametro);
+$parametro = htmlspecialchars($parametro, ENT_QUOTES, 'UTF-8');
 
 
     if ($parametro) {
@@ -100,8 +98,8 @@ include_once("sessao.php");
          while ($linha = mysqli_fetch_assoc($dados)) {
             echo "<tr>";
             echo "<td>" . $linha['email'] . "</td>";
-            echo "<td> <a id='link_blue' href='alterar.php?id=" . $linha['id'] . "&email=" . urlencode($linha['email']) . "&senha=" . urlencode($linha['senha']) . "'>Alterar</a>";
-            echo "<td> <a id='link_red' href='paginadeletar.php?id=" . $linha['id'] . "&email=" . urlencode($linha['email']) . "&senha=" . urlencode($linha['senha']) .  "'>Deletar</a> ";
+            echo "<td> <a id='link_blue' href='alterar.php?id=" . $linha['id_cadastro'] . "&email=" . urlencode($linha['email']) . "&senha=" . urlencode($linha['senha']) . "'>Alterar</a>";
+            echo "<td> <a id='link_red' href='paginadeletar.php?id=" . $linha['id_cadastro'] . "&email=" . urlencode($linha['email']) . "&senha=" . urlencode($linha['senha']) .  "'>Deletar</a> ";
             echo "</td>";
             
             

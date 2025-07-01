@@ -124,7 +124,7 @@ include_once('conexao.php');
                     echo "<a href='compras.php?id=" . $linha['id_evento'] . 
                     "&nome=" . urlencode($linha['nome_evento']) . 
                     "&data=" . urlencode($linha['data_evento']) . 
-                    "&preco=" . urlencode($linha['ticket_medio']) . 
+                    "&preco=" . urlencode($linha['ticket_evento']) . 
                     "&mensagem=" . urlencode($linha['mensagem']) . 
                     "' class='btn btn-primary'>Entrar</a>";                 
                     echo '</div>';

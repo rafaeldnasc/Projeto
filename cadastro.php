@@ -1,35 +1,36 @@
 <?php
 session_start();
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include("conexao.php");
-    
+
     // Validação
-    $required = ['nome', 'data', 'nomema', 'cpf', 'telefone', 'login', 'senha'];
+    $required = ['nome', 'datanascimento', 'nomema', 'cpf', 'telefone', 'login', 'senha', 'senhaconfi'];
     foreach ($required as $field) {
         if (empty($_POST[$field])) {
             die("O campo $field é obrigatório!");
         }
     }
 
-    // Processamento dos dados
-    $data = [
-        'nome' => filter_input(INPUT_POST, "nome", FILTER_SANITIZE_STRING),
-        'data' => $_POST['data'],
-        'nomema' => filter_input(INPUT_POST, "nomema", FILTER_SANITIZE_STRING),
-        'cpf' => password_hash(filter_input(INPUT_POST, "cpf", FILTER_SANITIZE_STRING), PASSWORD_BCRYPT),
-        'telefone' => filter_input(INPUT_POST, "telefone", FILTER_SANITIZE_STRING),
-        'telefonefi' => filter_input(INPUT_POST, "telefonefi", FILTER_SANITIZE_STRING) ?? '',
-        'endereco' => filter_input(INPUT_POST, "a", FILTER_SANITIZE_STRING),
-        'login' => filter_input(INPUT_POST, "login", FILTER_SANITIZE_STRING),
-        'senha' => password_hash(filter_input(INPUT_POST, "senha", FILTER_SANITIZE_STRING), PASSWORD_BCRYPT),
-        'cep' => filter_input(INPUT_POST, "cep_endereço", FILTER_SANITIZE_STRING),
-        'sexo' => filter_input(INPUT_POST, "sexo", FILTER_SANITIZE_STRING)
-    ];
+    // Verifica se as senhas coincidem
+    if ($_POST['senha'] !== $_POST['senhaconfi']) {
+        die("As senhas não coincidem!");
+    }
 
-    // Query corrigida
+    // Processamento e sanitização
+    $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_STRING);
+    $datanascimento = $_POST['datanascimento'];
+    $nomema = filter_input(INPUT_POST, "nomema", FILTER_SANITIZE_STRING);
+    $cpf = password_hash(filter_input(INPUT_POST, "cpf", FILTER_SANITIZE_STRING), PASSWORD_BCRYPT);
+    $telefone = filter_input(INPUT_POST, "telefone", FILTER_SANITIZE_STRING);
+    $telefonefi = filter_input(INPUT_POST, "telefonefi", FILTER_SANITIZE_STRING) ?? '';
+    $endereco = filter_input(INPUT_POST, "a", FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, "login", FILTER_SANITIZE_EMAIL);
+    $senha = password_hash(filter_input(INPUT_POST, "senha", FILTER_SANITIZE_STRING), PASSWORD_BCRYPT);
+    $cep = filter_input(INPUT_POST, "cep_endereço", FILTER_SANITIZE_STRING);
+    $sexo = filter_input(INPUT_POST, "sexo", FILTER_SANITIZE_STRING);
+
+    // Query preparada
     $sql = "INSERT INTO cadastro (
         nome, datanascimento, nomema, cpf, telefone, 
         telefonefi, endereco, email, senha, cep, 
@@ -43,17 +44,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt->bind_param(
         "sssssssssss",
-        $data['nome'],
-        $data['data'],
-        $data['nomema'],
-        $data['cpf'],
-        $data['telefone'],
-        $data['telefonefi'],
-        $data['endereco'],
-        $data['login'],
-        $data['senha'],
-        $data['cep'],
-        $data['sexo']
+        $nome,
+        $datanascimento,
+        $nomema,
+        $cpf,
+        $telefone,
+        $telefonefi,
+        $endereco,
+        $email,
+        $senha,
+        $cep,
+        $sexo
     );
 
     if ($stmt->execute()) {
@@ -65,7 +66,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Erro ao cadastrar: " . $stmt->error);
     }
 }
-// REMOVA O ELSE FINAL QUE REDIRECIONA PARA CADASTRO.PHP
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-  
+ <script src="javascript/cadastro.js"></script>
 </head>
 <body>
 <div id="first_column" class="fixed-top">
@@ -140,8 +140,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <div class="input-box">
-            <label for="data"></label>
-            <input type="date" class="inputs" name="data" id="data"  placeholder="Data de nascimento" >
+            <label for="datanascimento"></label>
+            <input type="date" class="inputs" name="datanascimento" id="datanascimento"  placeholder="Data de nascimento" required>
             
         </div>
 

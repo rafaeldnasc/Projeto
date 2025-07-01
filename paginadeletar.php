@@ -1,5 +1,6 @@
 <?php 
 include_once('conexao.php');
+include_once('sessao.php');
 
  $id= filter_input(INPUT_GET,'id', FILTER_VALIDATE_INT);
  $email = filter_input (INPUT_GET,'email', FILTER_DEFAULT);
